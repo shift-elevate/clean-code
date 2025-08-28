@@ -151,6 +151,32 @@ java -jar target/clean-code-java-1.0.0.jar
 mvn test
 ```
 
+### **Run Individual Code Smell Demonstrations**
+
+```bash
+# First compile the project
+mvn clean compile
+
+# Long Method Code Smell
+java -cp target/classes com.cleancode.bloaters.longmethod.Launcher
+
+# Switch Statements Code Smell
+java -cp target/classes com.cleancode.objectorientedabusers.switchstatements.Launcher
+
+# Long Parameter List Code Smell
+java -cp target/classes com.cleancode.bloaters.longparameterlist.Launcher
+
+# Feature Envy Code Smell
+java -cp target/classes com.cleancode.couplers.featureenvy.Launcher
+```
+
+### **Run All Code Smells Together**
+
+```bash
+# Run the main application with all demonstrations
+mvn exec:java -Dexec.mainClass="com.cleancode.Main"
+```
+
 ### **Run Specific Test Class**
 
 ```bash

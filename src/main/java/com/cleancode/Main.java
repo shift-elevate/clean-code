@@ -6,10 +6,16 @@ import com.cleancode.bloaters.longparameterlist.LongParameterListSmell;
 import com.cleancode.bloaters.longparameterlist.LongParameterListRefactored;
 import com.cleancode.objectorientedabusers.switchstatements.SwitchStatementsSmell;
 import com.cleancode.objectorientedabusers.switchstatements.SwitchStatementsRefactored;
+import com.cleancode.couplers.featureenvy.FeatureEnvySmell;
+import com.cleancode.couplers.featureenvy.FeatureEnvyRefactored;
 import com.cleancode.domain.Customer;
 import com.cleancode.domain.Order;
 import com.cleancode.domain.OrderItem;
 import com.cleancode.domain.User;
+import com.cleancode.domain.Car;
+import com.cleancode.domain.CarType;
+import com.cleancode.domain.RentalCustomer;
+import com.cleancode.domain.Rental;
 
 import java.time.LocalDate;
 
@@ -44,6 +50,14 @@ public class Main {
         System.out.println("\n" + "=".repeat(50) + "\n");
         
         demonstrateLongParameterListRefactored();
+        
+        System.out.println("\n" + "=".repeat(50) + "\n");
+        
+        demonstrateFeatureEnvyCodeSmell();
+        
+        System.out.println("\n" + "=".repeat(50) + "\n");
+        
+        demonstrateFeatureEnvyRefactored();
         
         System.out.println("\n" + "=".repeat(50) + "\n");
         
@@ -216,5 +230,53 @@ public class Main {
         
         System.out.println("\nUpdating user profile with parameter object:");
         processor.updateUserProfile(2L, userData);
+    }
+    
+    /**
+     * Demonstrates the Feature Envy code smell.
+     */
+    private static void demonstrateFeatureEnvyCodeSmell() {
+        System.out.println("🐛 FEATURE ENVY CODE SMELL");
+        
+        FeatureEnvySmell calculator = new FeatureEnvySmell();
+        
+        // Create test data
+        Car luxuryCar = new Car(CarType.LUXURY, 150.0, 6);
+        RentalCustomer loyalCustomer = new RentalCustomer("CUST001", "John Doe", "john@example.com", 3);
+        Rental rental = new Rental(luxuryCar, loyalCustomer, 5);
+        
+        // Calculate cost using the problematic method
+        double cost = calculator.calculateRentalCost(rental);
+        
+        System.out.println("Rental Details:");
+        System.out.println("- Car: " + luxuryCar);
+        System.out.println("- Customer: " + loyalCustomer);
+        System.out.println("- Days: " + rental.getDays());
+        System.out.println();
+        System.out.println("Calculated Cost: $" + String.format("%.2f", cost));
+    }
+    
+    /**
+     * Demonstrates the refactored solution using Move Method.
+     */
+    private static void demonstrateFeatureEnvyRefactored() {
+        System.out.println("✅ FEATURE ENVY REFACTORED");
+        
+        FeatureEnvyRefactored calculator = new FeatureEnvyRefactored();
+        
+        // Create test data
+        Car luxuryCar = new Car(CarType.LUXURY, 150.0, 6);
+        RentalCustomer loyalCustomer = new RentalCustomer("CUST001", "John Doe", "john@example.com", 3);
+        Rental rental = new Rental(luxuryCar, loyalCustomer, 5);
+        
+        // Calculate cost using the refactored method
+        double cost = calculator.calculateRentalCost(rental);
+        
+        System.out.println("Rental Details:");
+        System.out.println("- Car: " + luxuryCar);
+        System.out.println("- Customer: " + loyalCustomer);
+        System.out.println("- Days: " + rental.getDays());
+        System.out.println();
+        System.out.println("Calculated Cost: $" + String.format("%.2f", cost));
     }
 }

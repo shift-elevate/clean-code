@@ -30,6 +30,9 @@ This project serves as an educational resource for learning clean code principle
 ### Object-Oriented Abusers
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
 
+### Couplers
+- **Feature Envy**: Move Method refactoring to place methods with the data they operate on
+
 ## 🔧 Prerequisites
 
 - **Java 21** (OpenJDK 21.0.7+)
@@ -67,6 +70,7 @@ clean-code/
     ├── changepreventers/
     ├── dispensables/
     ├── couplers/
+    │   └── featureenvy/
     └── Main.java
 ```
 
@@ -158,6 +162,9 @@ mvn test -Dtest=LongParameterListTest
 
 # Switch Statements Code Smell
 mvn test -Dtest=SwitchStatementsTest
+
+# Feature Envy Code Smell
+mvn test -Dtest=FeatureEnvyTest
 ```
 
 ## 🐛 Troubleshooting

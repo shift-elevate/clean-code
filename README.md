@@ -26,6 +26,7 @@ This project serves as an educational resource for learning clean code principle
 ### Bloaters
 - **Long Method**: Extract Method refactoring to break down complex methods
 - **Long Parameter List**: Introduce Parameter Object refactoring to group related parameters
+- **Magic Numbers**: Replace Magic Number with Named Constant refactoring to improve readability
 
 ### Object-Oriented Abusers
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
@@ -64,7 +65,8 @@ clean-code/
     ├── domain/
     ├── bloaters/
     │   ├── longmethod/
-    │   └── longparameterlist/
+    │   ├── longparameterlist/
+    │   └── magicnumbers/
     ├── objectorientedabusers/
     │   └── switchstatements/
     ├── changepreventers/
@@ -154,21 +156,23 @@ mvn test
 ### **Run Individual Code Smell Demonstrations**
 
 ```bash
-# First compile the project
-mvn clean compile
-
 # Long Method Code Smell
-java -cp target/classes com.cleancode.bloaters.longmethod.Launcher
+mvn exec:java@long-method
 
 # Switch Statements Code Smell
-java -cp target/classes com.cleancode.objectorientedabusers.switchstatements.Launcher
+mvn exec:java@switch-statements
 
 # Long Parameter List Code Smell
-java -cp target/classes com.cleancode.bloaters.longparameterlist.Launcher
+mvn exec:java@long-parameter-list
+
+# Magic Numbers Code Smell
+mvn exec:java@magic-numbers
 
 # Feature Envy Code Smell
-java -cp target/classes com.cleancode.couplers.featureenvy.Launcher
+mvn exec:java@feature-envy
 ```
+
+**Note**: Each execution ID runs only the specific code smell demonstration, not all of them.
 
 ### **Run All Code Smells Together**
 
@@ -185,6 +189,9 @@ mvn test -Dtest=LongMethodTest
 
 # Long Parameter List Code Smell
 mvn test -Dtest=LongParameterListTest
+
+# Magic Numbers Code Smell
+mvn test -Dtest=MagicNumbersTest
 
 # Switch Statements Code Smell
 mvn test -Dtest=SwitchStatementsTest

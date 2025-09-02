@@ -53,6 +53,43 @@
                 <configuration>
                     <mainClass>com.cleancode.Main</mainClass>
                 </configuration>
+                <executions>
+                    <!-- Long Method Code Smell -->
+                    <execution>
+                        <id>long-method</id>
+                        <configuration>
+                            <mainClass>com.cleancode.bloaters.longmethod.Launcher</mainClass>
+                        </configuration>
+                    </execution>
+                    <!-- Long Parameter List Code Smell -->
+                    <execution>
+                        <id>long-parameter-list</id>
+                        <configuration>
+                            <mainClass>com.cleancode.bloaters.longparameterlist.Launcher</mainClass>
+                        </configuration>
+                    </execution>
+                    <!-- Magic Numbers Code Smell -->
+                    <execution>
+                        <id>magic-numbers</id>
+                        <configuration>
+                            <mainClass>com.cleancode.bloaters.magicnumbers.Launcher</mainClass>
+                        </configuration>
+                    </execution>
+                    <!-- Switch Statements Code Smell -->
+                    <execution>
+                        <id>switch-statements</id>
+                        <configuration>
+                            <mainClass>com.cleancode.objectorientedabusers.switchstatements.Launcher</mainClass>
+                        </configuration>
+                    </execution>
+                    <!-- Feature Envy Code Smell -->
+                    <execution>
+                        <id>feature-envy</id>
+                        <configuration>
+                            <mainClass>com.cleancode.couplers.featureenvy.Launcher</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <!-- Maven Surefire Plugin for testing -->

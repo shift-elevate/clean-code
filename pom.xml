@@ -58,35 +58,42 @@
                     <execution>
                         <id>long-method</id>
                         <configuration>
-                            <mainClass>com.cleancode.bloaters.longmethod.Launcher</mainClass>
+                            <mainClass>com.cleancode.sizecomplexity.longmethod.Launcher</mainClass>
                         </configuration>
                     </execution>
                     <!-- Long Parameter List Code Smell -->
                     <execution>
                         <id>long-parameter-list</id>
                         <configuration>
-                            <mainClass>com.cleancode.bloaters.longparameterlist.Launcher</mainClass>
+                            <mainClass>com.cleancode.sizecomplexity.longparameterlist.Launcher</mainClass>
                         </configuration>
                     </execution>
                     <!-- Magic Numbers Code Smell -->
                     <execution>
                         <id>magic-numbers</id>
                         <configuration>
-                            <mainClass>com.cleancode.bloaters.magicnumbers.Launcher</mainClass>
+                            <mainClass>com.cleancode.sizecomplexity.magicnumbers.Launcher</mainClass>
                         </configuration>
                     </execution>
                     <!-- Switch Statements Code Smell -->
                     <execution>
                         <id>switch-statements</id>
                         <configuration>
-                            <mainClass>com.cleancode.objectorientedabusers.switchstatements.Launcher</mainClass>
+                            <mainClass>com.cleancode.oopantipatterns.switchstatements.Launcher</mainClass>
                         </configuration>
                     </execution>
                     <!-- Feature Envy Code Smell -->
                     <execution>
                         <id>feature-envy</id>
                         <configuration>
-                            <mainClass>com.cleancode.couplers.featureenvy.Launcher</mainClass>
+                            <mainClass>com.cleancode.dependencyproblems.featureenvy.Launcher</mainClass>
+                        </configuration>
+                    </execution>
+                    <!-- Circular Dependencies Code Smell -->
+                    <execution>
+                        <id>circular-dependencies</id>
+                        <configuration>
+                            <mainClass>com.cleancode.dependencyproblems.circulardependencies.Launcher</mainClass>
                         </configuration>
                     </execution>
                 </executions>

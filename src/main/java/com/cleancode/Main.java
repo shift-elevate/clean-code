@@ -1,13 +1,15 @@
 package com.cleancode;
 
-import com.cleancode.bloaters.longmethod.LongMethodSmell;
-import com.cleancode.bloaters.longmethod.LongMethodRefactored;
-import com.cleancode.bloaters.longparameterlist.LongParameterListSmell;
-import com.cleancode.bloaters.longparameterlist.LongParameterListRefactored;
-import com.cleancode.objectorientedabusers.switchstatements.SwitchStatementsSmell;
-import com.cleancode.objectorientedabusers.switchstatements.SwitchStatementsRefactored;
-import com.cleancode.couplers.featureenvy.FeatureEnvySmell;
-import com.cleancode.couplers.featureenvy.FeatureEnvyRefactored;
+import com.cleancode.sizecomplexity.longmethod.LongMethodSmell;
+import com.cleancode.sizecomplexity.longmethod.LongMethodRefactored;
+import com.cleancode.sizecomplexity.longparameterlist.LongParameterListSmell;
+import com.cleancode.sizecomplexity.longparameterlist.LongParameterListRefactored;
+import com.cleancode.oopantipatterns.switchstatements.SwitchStatementsSmell;
+import com.cleancode.oopantipatterns.switchstatements.SwitchStatementsRefactored;
+import com.cleancode.dependencyproblems.featureenvy.FeatureEnvySmell;
+import com.cleancode.dependencyproblems.featureenvy.FeatureEnvyRefactored;
+import com.cleancode.dependencyproblems.circulardependencies.CircularDependenciesSmell;
+import com.cleancode.dependencyproblems.circulardependencies.CircularDependenciesRefactored;
 import com.cleancode.domain.Customer;
 import com.cleancode.domain.Order;
 import com.cleancode.domain.OrderItem;
@@ -58,6 +60,14 @@ public class Main {
         System.out.println("\n" + "=".repeat(50) + "\n");
         
         demonstrateFeatureEnvyRefactored();
+        
+        System.out.println("\n" + "=".repeat(50) + "\n");
+        
+        demonstrateCircularDependenciesCodeSmell();
+        
+        System.out.println("\n" + "=".repeat(50) + "\n");
+        
+        demonstrateCircularDependenciesRefactored();
         
         System.out.println("\n" + "=".repeat(50) + "\n");
         
@@ -278,5 +288,25 @@ public class Main {
         System.out.println("- Days: " + rental.getDays());
         System.out.println();
         System.out.println("Calculated Cost: $" + String.format("%.2f", cost));
+    }
+    
+    /**
+     * Demonstrates the Circular Dependencies code smell.
+     */
+    private static void demonstrateCircularDependenciesCodeSmell() {
+        System.out.println("🔄 CIRCULAR DEPENDENCIES CODE SMELL");
+        
+        // Show the problem with circular dependencies
+        CircularDependenciesSmell.demonstrateCircularDependencyProblem();
+    }
+    
+    /**
+     * Demonstrates the refactored solution using Dependency Inversion.
+     */
+    private static void demonstrateCircularDependenciesRefactored() {
+        System.out.println("✅ CIRCULAR DEPENDENCIES REFACTORED");
+        
+        // Show the refactored solution working
+        CircularDependenciesRefactored.demonstrateRefactoredSolution();
     }
 }

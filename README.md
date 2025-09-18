@@ -23,16 +23,17 @@ This project serves as an educational resource for learning clean code principle
 
 ## 📋 Available Code Smells
 
-### Bloaters
+### Size & Complexity Problems
 - **Long Method**: Extract Method refactoring to break down complex methods
 - **Long Parameter List**: Introduce Parameter Object refactoring to group related parameters
 - **Magic Numbers**: Replace Magic Number with Named Constant refactoring to improve readability
 
-### Object-Oriented Abusers
+### OOP Anti-Patterns
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
 
-### Couplers
+### Dependency Problems
 - **Feature Envy**: Move Method refactoring to place methods with the data they operate on
+- **Circular Dependencies**: Dependency Inversion refactoring to break circular dependencies with interfaces
 
 ## 🔧 Prerequisites
 
@@ -63,16 +64,15 @@ java --version
 clean-code/
 └── src/main/java/com/cleancode/
     ├── domain/
-    ├── bloaters/
+    ├── sizecomplexity/
     │   ├── longmethod/
     │   ├── longparameterlist/
     │   └── magicnumbers/
-    ├── objectorientedabusers/
+    ├── oopantipatterns/
     │   └── switchstatements/
-    ├── changepreventers/
-    ├── dispensables/
-    ├── couplers/
-    │   └── featureenvy/
+    ├── dependencyproblems/
+    │   ├── featureenvy/
+    │   └── circulardependencies/
     └── Main.java
 ```
 
@@ -170,6 +170,9 @@ mvn exec:java@magic-numbers
 
 # Feature Envy Code Smell
 mvn exec:java@feature-envy
+
+# Circular Dependencies Code Smell
+mvn exec:java@circular-dependencies
 ```
 
 **Note**: Each execution ID runs only the specific code smell demonstration, not all of them.
@@ -198,6 +201,9 @@ mvn test -Dtest=SwitchStatementsTest
 
 # Feature Envy Code Smell
 mvn test -Dtest=FeatureEnvyTest
+
+# Circular Dependencies Code Smell
+mvn test -Dtest=CircularDependenciesTest
 ```
 
 ## 🐛 Troubleshooting

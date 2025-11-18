@@ -96,6 +96,13 @@
                             <mainClass>com.cleancode.dependencyproblems.circulardependencies.Launcher</mainClass>
                         </configuration>
                     </execution>
+                    <!-- Primitive Obsession Code Smell -->
+                    <execution>
+                        <id>primitive-obsession</id>
+                        <configuration>
+                            <mainClass>com.cleancode.primitiveobsession.Launcher</mainClass>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 

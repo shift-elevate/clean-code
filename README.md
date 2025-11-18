@@ -30,6 +30,7 @@ This project serves as an educational resource for learning clean code principle
 
 ### OOP Anti-Patterns
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
+- **Primitive Obsession**: Replace Primitive with Object refactoring to create rich domain models with meaningful types
 
 ### Dependency Problems
 - **Feature Envy**: Move Method refactoring to place methods with the data they operate on
@@ -69,7 +70,8 @@ clean-code/
     │   ├── longparameterlist/
     │   └── magicnumbers/
     ├── oopantipatterns/
-    │   └── switchstatements/
+    │   ├── switchstatements/
+    │   └── primitiveobsession/
     ├── dependencyproblems/
     │   ├── featureenvy/
     │   └── circulardependencies/
@@ -162,6 +164,9 @@ mvn exec:java@long-method
 # Switch Statements Code Smell
 mvn exec:java@switch-statements
 
+# Primitive Obsession Code Smell
+mvn exec:java@primitive-obsession
+
 # Long Parameter List Code Smell
 mvn exec:java@long-parameter-list
 
@@ -198,6 +203,9 @@ mvn test -Dtest=MagicNumbersTest
 
 # Switch Statements Code Smell
 mvn test -Dtest=SwitchStatementsTest
+
+# Primitive Obsession Code Smell
+mvn test -Dtest=PrimitiveObsessionTest
 
 # Feature Envy Code Smell
 mvn test -Dtest=FeatureEnvyTest

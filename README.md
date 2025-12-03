@@ -27,6 +27,7 @@ This project serves as an educational resource for learning clean code principle
 - **Long Method**: Extract Method refactoring to break down complex methods
 - **Long Parameter List**: Introduce Parameter Object refactoring to group related parameters
 - **Magic Numbers**: Replace Magic Number with Named Constant refactoring to improve readability
+- **Large Class**: Extract Class refactoring to break down large classes into focused, single-responsibility classes
 
 ### OOP Anti-Patterns
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
@@ -173,6 +174,9 @@ mvn exec:java@long-parameter-list
 # Magic Numbers Code Smell
 mvn exec:java@magic-numbers
 
+# Large Class Code Smell
+mvn exec:java@large-class
+
 # Feature Envy Code Smell
 mvn exec:java@feature-envy
 
@@ -200,6 +204,9 @@ mvn test -Dtest=LongParameterListTest
 
 # Magic Numbers Code Smell
 mvn test -Dtest=MagicNumbersTest
+
+# Large Class Code Smell
+mvn test -Dtest=LargeClassTest
 
 # Switch Statements Code Smell
 mvn test -Dtest=SwitchStatementsTest

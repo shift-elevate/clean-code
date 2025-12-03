@@ -75,6 +75,13 @@
                             <mainClass>com.cleancode.sizecomplexity.magicnumbers.Launcher</mainClass>
                         </configuration>
                     </execution>
+                    <!-- Large Class Code Smell -->
+                    <execution>
+                        <id>large-class</id>
+                        <configuration>
+                            <mainClass>com.cleancode.sizecomplexity.largeclass.Launcher</mainClass>
+                        </configuration>
+                    </execution>
                     <!-- Switch Statements Code Smell -->
                     <execution>
                         <id>switch-statements</id>

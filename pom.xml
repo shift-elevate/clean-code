@@ -110,6 +110,13 @@
                             <mainClass>com.cleancode.primitiveobsession.Launcher</mainClass>
                         </configuration>
                     </execution>
+                    <!-- Data Clumps Code Smell -->
+                    <execution>
+                        <id>data-clumps</id>
+                        <configuration>
+                            <mainClass>com.cleancode.sizecomplexity.dataclumps.Launcher</mainClass>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 

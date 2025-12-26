@@ -23,7 +23,6 @@ public class Order {
         this.weight = 0.0; // Default weight
     }
     
-    // Getters and Setters
     public String getOrderId() {
         return orderId;
     }

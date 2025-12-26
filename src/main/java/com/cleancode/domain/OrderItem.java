@@ -17,7 +17,6 @@ public class OrderItem {
         this.quantity = quantity;
     }
     
-    // Getters and Setters
     public String getProductId() {
         return productId;
     }

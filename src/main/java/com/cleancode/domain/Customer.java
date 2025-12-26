@@ -17,7 +17,6 @@ public class Customer {
         this.premium = premium;
     }
     
-    // Getters and Setters
     public String getCustomerId() {
         return customerId;
     }

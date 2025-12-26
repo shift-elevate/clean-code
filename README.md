@@ -28,6 +28,7 @@ This project serves as an educational resource for learning clean code principle
 - **Long Parameter List**: Introduce Parameter Object refactoring to group related parameters
 - **Magic Numbers**: Replace Magic Number with Named Constant refactoring to improve readability
 - **Large Class**: Extract Class refactoring to break down large classes into focused, single-responsibility classes
+- **Data Clumps**: Extract Class refactoring to group related data that always appear together into meaningful objects
 
 ### OOP Anti-Patterns
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
@@ -69,7 +70,9 @@ clean-code/
     ├── sizecomplexity/
     │   ├── longmethod/
     │   ├── longparameterlist/
-    │   └── magicnumbers/
+    │   ├── magicnumbers/
+    │   ├── largeclass/
+    │   └── dataclumps/
     ├── oopantipatterns/
     │   ├── switchstatements/
     │   └── primitiveobsession/
@@ -177,6 +180,9 @@ mvn exec:java@magic-numbers
 # Large Class Code Smell
 mvn exec:java@large-class
 
+# Data Clumps Code Smell
+mvn exec:java@data-clumps
+
 # Feature Envy Code Smell
 mvn exec:java@feature-envy
 
@@ -207,6 +213,9 @@ mvn test -Dtest=MagicNumbersTest
 
 # Large Class Code Smell
 mvn test -Dtest=LargeClassTest
+
+# Data Clumps Code Smell
+mvn test -Dtest=DataClumpsTest
 
 # Switch Statements Code Smell
 mvn test -Dtest=SwitchStatementsTest

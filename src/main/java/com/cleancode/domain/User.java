@@ -21,10 +21,8 @@ public class User {
     private boolean isActive;
     
     public User() {
-        // Default constructor
     }
     
-    // Getters and Setters
     public String getFirstName() {
         return firstName;
     }

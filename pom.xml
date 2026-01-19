@@ -117,6 +117,13 @@
                             <mainClass>com.cleancode.sizecomplexity.dataclumps.Launcher</mainClass>
                         </configuration>
                     </execution>
+                    <!-- Hardcoded Strings Code Smell -->
+                    <execution>
+                        <id>hardcoded-strings</id>
+                        <configuration>
+                            <mainClass>com.cleancode.sizecomplexity.hardcodedstrings.Launcher</mainClass>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
 

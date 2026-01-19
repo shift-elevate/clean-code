@@ -29,6 +29,7 @@ This project serves as an educational resource for learning clean code principle
 - **Magic Numbers**: Replace Magic Number with Named Constant refactoring to improve readability
 - **Large Class**: Extract Class refactoring to break down large classes into focused, single-responsibility classes
 - **Data Clumps**: Extract Class refactoring to group related data that always appear together into meaningful objects
+- **Hardcoded Strings**: Replace Magic String with Named Constant refactoring to centralize string management using typesafe enums
 
 ### OOP Anti-Patterns
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
@@ -72,7 +73,8 @@ clean-code/
     │   ├── longparameterlist/
     │   ├── magicnumbers/
     │   ├── largeclass/
-    │   └── dataclumps/
+    │   ├── dataclumps/
+    │   └── hardcodedstrings/
     ├── oopantipatterns/
     │   ├── switchstatements/
     │   └── primitiveobsession/
@@ -183,6 +185,9 @@ mvn exec:java@large-class
 # Data Clumps Code Smell
 mvn exec:java@data-clumps
 
+# Hardcoded Strings Code Smell
+mvn exec:java@hardcoded-strings
+
 # Feature Envy Code Smell
 mvn exec:java@feature-envy
 
@@ -216,6 +221,9 @@ mvn test -Dtest=LargeClassTest
 
 # Data Clumps Code Smell
 mvn test -Dtest=DataClumpsTest
+
+# Hardcoded Strings Code Smell
+mvn test -Dtest=HardcodedStringsTest
 
 # Switch Statements Code Smell
 mvn test -Dtest=SwitchStatementsTest

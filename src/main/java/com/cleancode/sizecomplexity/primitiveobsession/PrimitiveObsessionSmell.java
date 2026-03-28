@@ -1,4 +1,4 @@
-package com.cleancode.primitiveobsession;
+package com.cleancode.sizecomplexity.primitiveobsession;
 
 /**
  * Demonstrates the Primitive Obsession code smell.

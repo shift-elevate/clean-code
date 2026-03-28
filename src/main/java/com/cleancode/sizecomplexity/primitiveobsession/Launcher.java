@@ -1,4 +1,4 @@
-package com.cleancode.primitiveobsession;
+package com.cleancode.sizecomplexity.primitiveobsession;
 
 import com.cleancode.domain.Email;
 import com.cleancode.domain.Money;

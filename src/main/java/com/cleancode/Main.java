@@ -10,6 +10,8 @@ import com.cleancode.dependencyproblems.featureenvy.FeatureEnvySmell;
 import com.cleancode.dependencyproblems.featureenvy.FeatureEnvyRefactored;
 import com.cleancode.dependencyproblems.circulardependencies.CircularDependenciesSmell;
 import com.cleancode.dependencyproblems.circulardependencies.CircularDependenciesRefactored;
+import com.cleancode.oopantipatterns.temporaryfield.TemporaryFieldSmell;
+import com.cleancode.oopantipatterns.temporaryfield.TemporaryFieldRefactored;
 import com.cleancode.domain.Customer;
 import com.cleancode.domain.Order;
 import com.cleancode.domain.OrderItem;
@@ -18,6 +20,8 @@ import com.cleancode.domain.Car;
 import com.cleancode.domain.CarType;
 import com.cleancode.domain.RentalCustomer;
 import com.cleancode.domain.Rental;
+
+import java.util.List;
 
 import java.time.LocalDate;
 
@@ -68,9 +72,17 @@ public class Main {
         System.out.println("\n" + "=".repeat(50) + "\n");
         
         demonstrateCircularDependenciesRefactored();
-        
+
         System.out.println("\n" + "=".repeat(50) + "\n");
-        
+
+        demonstrateTemporaryFieldCodeSmell();
+
+        System.out.println("\n" + "=".repeat(50) + "\n");
+
+        demonstrateTemporaryFieldRefactored();
+
+        System.out.println("\n" + "=".repeat(50) + "\n");
+
     }
     
     /**
@@ -290,6 +302,60 @@ public class Main {
         System.out.println("Calculated Cost: $" + String.format("%.2f", cost));
     }
     
+    /**
+     * Demonstrates the Temporary Field code smell.
+     */
+    private static void demonstrateTemporaryFieldCodeSmell() {
+        System.out.println("🐛 TEMPORARY FIELD CODE SMELL");
+
+        Customer customer = new Customer("C001", "John Doe", "john@example.com", false);
+        List<OrderItem> items = List.of(
+            new OrderItem("P001", "Laptop", 999.99, 1),
+            new OrderItem("P002", "Mouse", 29.99, 2)
+        );
+
+        TemporaryFieldSmell processor = new TemporaryFieldSmell("ORD-001", customer, items);
+        System.out.println("Base total: $" + processor.getTotalAmount());
+
+        double discountedTotal = processor.applyDiscount("SAVE10");
+        System.out.println("After discount: $" + discountedTotal);
+        System.out.println("Discount amount: $" + String.format("%.2f", processor.getDiscountAmount()));
+
+        boolean paid = processor.processPayment("CREDIT_CARD");
+        System.out.println("\nPayment processed: " + paid);
+        System.out.println("Transaction ID: " + processor.getTransactionId());
+
+        processor.prepareShipment("123 Main St, Springfield");
+        System.out.println("\nTracking number: " + processor.getTrackingNumber());
+    }
+
+    /**
+     * Demonstrates the refactored solution using Extract Class.
+     */
+    private static void demonstrateTemporaryFieldRefactored() {
+        System.out.println("✅ TEMPORARY FIELD REFACTORED");
+
+        Customer customer = new Customer("C002", "Jane Smith", "jane@example.com", false);
+        List<OrderItem> items = List.of(
+            new OrderItem("P001", "Laptop", 999.99, 1),
+            new OrderItem("P002", "Mouse", 29.99, 2)
+        );
+
+        TemporaryFieldRefactored processor = new TemporaryFieldRefactored("ORD-002", customer, items);
+        System.out.println("Base total: $" + processor.getTotalAmount());
+
+        double discountedTotal = processor.applyDiscount("SAVE10");
+        System.out.println("After discount: $" + discountedTotal);
+        System.out.println("Discount applied: " + processor.getDiscountInfo());
+
+        boolean paid = processor.processPayment("CREDIT_CARD");
+        System.out.println("\nPayment processed: " + paid);
+        System.out.println("Payment details: " + processor.getPaymentInfo());
+
+        processor.prepareShipment("123 Main St, Springfield");
+        System.out.println("\nShipment prepared: " + processor.getShipmentInfo());
+    }
+
     /**
      * Demonstrates the Circular Dependencies code smell.
      */

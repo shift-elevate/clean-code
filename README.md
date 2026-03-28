@@ -30,10 +30,11 @@ This project serves as an educational resource for learning clean code principle
 - **Large Class**: Extract Class refactoring to break down large classes into focused, single-responsibility classes
 - **Data Clumps**: Extract Class refactoring to group related data that always appear together into meaningful objects
 - **Hardcoded Strings**: Replace Magic String with Named Constant refactoring to centralize string management using typesafe enums
+- **Primitive Obsession**: Replace Primitive with Object refactoring to create rich domain models with meaningful types
 
 ### OOP Anti-Patterns
 - **Switch Statements**: Replace Conditional with Polymorphism to eliminate switch statements
-- **Primitive Obsession**: Replace Primitive with Object refactoring to create rich domain models with meaningful types
+- **Temporary Field**: Extract Class refactoring to organize instance variables only used in certain circumstances into dedicated classes
 
 ### Dependency Problems
 - **Feature Envy**: Move Method refactoring to place methods with the data they operate on
@@ -74,10 +75,11 @@ clean-code/
     │   ├── magicnumbers/
     │   ├── largeclass/
     │   ├── dataclumps/
-    │   └── hardcodedstrings/
+    │   ├── hardcodedstrings/
+    │   └── primitiveobsession/
     ├── oopantipatterns/
     │   ├── switchstatements/
-    │   └── primitiveobsession/
+    │   └── temporaryfield/
     ├── dependencyproblems/
     │   ├── featureenvy/
     │   └── circulardependencies/
@@ -193,6 +195,9 @@ mvn exec:java@feature-envy
 
 # Circular Dependencies Code Smell
 mvn exec:java@circular-dependencies
+
+# Temporary Field Code Smell
+mvn exec:java@temporary-field
 ```
 
 **Note**: Each execution ID runs only the specific code smell demonstration, not all of them.
@@ -236,6 +241,9 @@ mvn test -Dtest=FeatureEnvyTest
 
 # Circular Dependencies Code Smell
 mvn test -Dtest=CircularDependenciesTest
+
+# Temporary Field Code Smell
+mvn test -Dtest=TemporaryFieldTest
 ```
 
 ## 🐛 Troubleshooting

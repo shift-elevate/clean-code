@@ -107,7 +107,7 @@
                     <execution>
                         <id>primitive-obsession</id>
                         <configuration>
-                            <mainClass>com.cleancode.primitiveobsession.Launcher</mainClass>
+                            <mainClass>com.cleancode.sizecomplexity.primitiveobsession.Launcher</mainClass>
                         </configuration>
                     </execution>
                     <!-- Data Clumps Code Smell -->
